@@ -23,3 +23,15 @@ async function addMovie(body) {
   });
   return response.json();
 }
+
+async function editMovie(id, body) {
+  const response = await fetch(`${BASE_URL}/movies/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(body),
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  });
+  return response.json();
+}

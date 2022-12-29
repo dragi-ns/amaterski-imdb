@@ -32,9 +32,10 @@
     </header>
     <main class="flex-grow-1">
       <div class="container py-4">
-        <h2>Add Movie</h2>
+        <h2>Edit Movie</h2>
         <hr />
-        <form id="movie-add-form" class="row g-3" novalidate>
+        <form id="movie-edit-form" class="row g-3" novalidate>
+          <input type="number" id="id" hidden />
           <div class="col-md-4">
             <label for="title" class="form-label">Title</label>
             <input
@@ -120,7 +121,7 @@
             <div class="valid-feedback">Looks good!</div>
           </div>
           <div class="col-12 text-end">
-            <button class="btn btn-primary">Add Movie</button>
+            <button class="btn btn-primary">Edit Movie</button>
           </div>
         </form>
       </div>
@@ -134,7 +135,7 @@
       id="success-toast"
       class="toast align-items-center text-bg-success position-absolute border-0 top-0 end-0 m-3">
       <div class="d-flex">
-        <div class="toast-body">Movie successfully added!</div>
+        <div class="toast-body">Movie successfully updated!</div>
         <button
           type="button"
           class="btn-close btn-close-white me-2 m-auto"
@@ -145,7 +146,9 @@
       id="fail-toast"
       class="toast align-items-center text-bg-danger position-absolute border-0 top-0 end-0 m-3">
       <div class="d-flex">
-        <div class="toast-body">There was an error while adding the movie!</div>
+        <div class="toast-body">
+          There was an error while updating the movie!
+        </div>
         <button
           type="button"
           class="btn-close btn-close-white me-2 m-auto"
@@ -155,6 +158,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/client.js"></script>
     <script src="./js/movie_form.js"></script>
-    <script src="./js/movie_add.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/movie_edit.js"></script>
   </body>
 </html>
