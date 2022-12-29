@@ -7,6 +7,11 @@ async function getMovies() {
   return response.json();
 }
 
+async function getMovie(id) {
+  const response = await fetch(`${BASE_URL}/movies/${id}`);
+  return response.json();
+}
+
 async function addMovie(body) {
   const response = await fetch(`${BASE_URL}/movies`, {
     method: 'POST',
