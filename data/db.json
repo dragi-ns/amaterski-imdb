@@ -49,6 +49,26 @@
       "descrption": "Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. But when a pair of bungling burglars set their sights on Kevin's house, the plucky kid stands ready to defend his territory. By planting booby traps galore, adorably mischievous Kevin stands his ground as his frantic mother attempts to race home before Christmas Day.",
       "director": "Chris Columbus",
       "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/9wSbe4CwObACCQvaUVhWQyLR5Vz.jpg"
+    },
+    {
+      "title": "Violent Night",
+      "year": "2022",
+      "duration": 112,
+      "director": "Tommy Wirkola",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/1XSYOP0JjjyMz1irihvWywro82r.jpg",
+      "rating": 7.9,
+      "description": "When a team of mercenaries breaks into a wealthy family compound on Christmas Eve, taking everyone inside hostage, the team isn’t prepared for a surprise combatant: Santa Claus is on the grounds, and he’s about to show why this Nick is no saint.",
+      "id": 9
+    },
+    {
+      "title": "The Boss Baby: Christmas Bonus",
+      "year": "2022",
+      "duration": 47,
+      "director": "Christo Stamboliev",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iMmMxF6f2OonUrXrHKBLSYAhXly.jpg",
+      "rating": 7.4,
+      "description": "Christmas Eve takes a twisty turn when the Boss Baby accidentally swaps places with one of Santa's elves and gets stranded at the North Pole.",
+      "id": 10
     }
   ]
 }
