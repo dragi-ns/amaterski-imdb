@@ -4,6 +4,7 @@ const successToast = new bootstrap.Toast(
   document.getElementById('success-toast')
 );
 const failToast = new bootstrap.Toast(document.getElementById('fail-toast'));
+const cancelBtn = document.getElementById('cancel-btn');
 const form = document.getElementById('movie-edit-form');
 const id = getQueryStringParameterByName('id');
 if (id) {
@@ -19,6 +20,7 @@ if (id) {
 
 setUpInputEvents(form, VALIDATORS_MAP);
 form.addEventListener('submit', handleFormSubmission);
+cancelBtn.addEventListener('click', () => goBack());
 
 function handleFormSubmission(event) {
   event.preventDefault();
