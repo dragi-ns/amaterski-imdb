@@ -35,3 +35,10 @@ async function editMovie(id, body) {
   });
   return response.json();
 }
+
+async function deleteMovie(id) {
+  const response = await fetch(`${BASE_URL}/movies/${id}`, {
+    method: 'DELETE',
+  });
+  return response.json();
+}

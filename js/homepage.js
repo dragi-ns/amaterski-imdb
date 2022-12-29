@@ -3,6 +3,10 @@
 const movieList = document.getElementById('movie-list');
 getMovies()
   .then((data) => {
+    if (data.length < 1) {
+      movieList.innerHTML = '<p>There are no movies!</p>';
+      return;
+    }
     const movieCards = data.map(createMovieCard);
     movieList.innerHTML = movieCards.join('');
   })
