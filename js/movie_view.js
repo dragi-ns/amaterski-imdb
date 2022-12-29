@@ -3,9 +3,14 @@
 const movieDetails = document.getElementById('movie-details');
 const id = getQueryStringParameterByName('id');
 if (id) {
-  getMovie(id).then((data) => {
-    movieDetails.innerHTML = createMovieDetails(data);
-  });
+  getMovie(id)
+    .then((data) => {
+      movieDetails.innerHTML = createMovieDetails(data);
+    })
+    .catch((error) => {
+      movieDetails.innerHTML = '<p class="text-danger">There was an error.</p>';
+      console.error(`You had one job...${error}`);
+    });
 } else {
   window.location.href = 'index.html';
 }

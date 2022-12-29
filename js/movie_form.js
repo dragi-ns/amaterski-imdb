@@ -1,63 +1,58 @@
 'use strict';
 
-const properites = [
-  'title',
-  'year',
-  'duration',
-  'director',
-  'logo',
-  'rating',
-  'description',
-];
+const VALIDATORS_MAP = {
+  title: validateTitleInput,
+  year: validateYearInput,
+  duration: validateDurationInput,
+  director: validateDirectorInput,
+  logo: validatePosterInput,
+  rating: validateRatingInput,
+  description: validateDescription,
+};
 
-const validators = [
-  validateTitleInput,
-  validateYearInput,
-  validateDurationInput,
-  validateDirectorInput,
-  validatePosterInput,
-  validateRatingInput,
-  validateDescription,
-];
-
-function setUpInputEvents(form, validators) {
-  for (let i = 0; i < form.elements.length - 1; i++) {
-    const field = form.elements[i];
-    field.addEventListener('input', () => validators[i](field));
-    field.addEventListener('blur', () => validators[i](field));
+function setUpInputEvents(form, validatorsMap) {
+  for (const field of form) {
+    if (!field.id || !(field.id in validatorsMap)) {
+      continue;
+    }
+    field.addEventListener('input', () => validatorsMap[field.id](field));
+    field.addEventListener('blur', () => validatorsMap[field.id](field));
   }
 }
 
-function mapValuesToProperites(values, properites) {
-  return values.reduce((accumulator, value, index) => {
-    accumulator[properites[index]] = value;
-    return accumulator;
-  }, {});
+function populateFormFields(form, movie) {
+  for (const [prop, value] of Object.entries(movie)) {
+    form[prop].value = value;
+  }
 }
 
 function resetForm(form) {
   form.reset();
-  for (const field of form.elements) {
+  for (const field of form) {
     field.classList.remove('is-valid');
     field.classList.remove('is-validated');
   }
 }
 
-function validateForm(form, validators) {
+function validateForm(form, validatorsMap) {
   let seenInvalid = false;
-  let normalizedValues = [];
-  for (let i = 0; i < form.elements.length - 1; i++) {
-    const field = form.elements[i];
-    const [isValid, normalizedValue] = validators[i](field);
+  let normalizedValues = {};
+
+  for (const field of form) {
+    if (!field.id || !(field.id in validatorsMap)) {
+      continue;
+    }
+    const [isValid, normalizedValue] = validatorsMap[field.id](field);
+
     if (seenInvalid) {
       continue;
     }
 
     if (!isValid) {
       seenInvalid = true;
-      normalizedValues = [];
+      normalizedValues = {};
     } else {
-      normalizedValues.push(normalizedValue);
+      normalizedValues[field.id] = normalizedValue;
     }
   }
 

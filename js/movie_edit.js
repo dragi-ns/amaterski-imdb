@@ -4,7 +4,19 @@ const successToast = new bootstrap.Toast(
   document.getElementById('success-toast')
 );
 const failToast = new bootstrap.Toast(document.getElementById('fail-toast'));
-const form = document.getElementById('movie-add-form');
+const form = document.getElementById('movie-edit-form');
+const id = getQueryStringParameterByName('id');
+if (id) {
+  getMovie(id)
+    .then((data) => populateFormFields(form, data))
+    .catch((error) => {
+      failToast.show();
+      console.error(`You had one job...${error}`);
+    });
+} else {
+  window.location.href = 'index.html';
+}
+
 setUpInputEvents(form, VALIDATORS_MAP);
 form.addEventListener('submit', handleFormSubmission);
 
@@ -16,10 +28,12 @@ function handleFormSubmission(event) {
     return;
   }
 
-  addMovie(normalizedValues)
+  editMovie(id, normalizedValues)
     .then(() => {
       successToast.show();
-      resetForm(form);
+      setTimeout(() => {
+        window.history.back();
+      }, 750);
     })
     .catch((error) => {
       failToast.show();
