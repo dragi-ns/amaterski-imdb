@@ -1,8 +1,7 @@
 'use strict';
 
 const movieList = document.getElementById('movie-list');
-fetch('http://localhost:3000/movies')
-  .then((response) => response.json())
+getMovies()
   .then((data) => {
     const movieCards = data.map(createMovieCard);
     movieList.innerHTML = movieCards.join('');
@@ -18,9 +17,8 @@ function createMovieCard(movie) {
       <div class="card movie-card position-relative rounded-3 overflow-hidden">
         <a href="./movie_view.html?id=${movie.id}">
           <img
-            style="object-fit: cover"
             src="${movie.logo}"
-            alt="something"
+            alt="${movie.title} poster"
             class="card-img" />
         </a>
         <div
