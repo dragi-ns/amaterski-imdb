@@ -34,6 +34,16 @@ function resetForm(form) {
   }
 }
 
+function normalizeValue(data, sanitize = true) {
+  let normalized = data.trim();
+  if (sanitize) {
+    normalized = DOMPurify.sanitize(normalized, {
+      ALLOWED_TAGS: '#text',
+    });
+  }
+  return normalized;
+}
+
 async function validateForm(form, validatorsMap) {
   let seenInvalid = false;
   let normalizedValues = {};
@@ -67,7 +77,8 @@ async function validateForm(form, validatorsMap) {
 }
 
 function validateTitleInput(titleInput) {
-  const normalized = titleInput.value.trim();
+  const normalized = normalizeValue(titleInput.value);
+  console.log(normalized);
   if (normalized.length === 0) {
     markAsInvalid(titleInput, 'Title is required!');
     return [false, null];
@@ -78,8 +89,8 @@ function validateTitleInput(titleInput) {
     return [false, null];
   }
 
-  if (normalized.length > 48) {
-    markAsInvalid(titleInput, `Title is too long! (${normalized.length}/48)`);
+  if (normalized.length > 64) {
+    markAsInvalid(titleInput, `Title is too long! (${normalized.length}/64)`);
     return [false, null];
   }
 
@@ -88,7 +99,7 @@ function validateTitleInput(titleInput) {
 }
 
 function validateYearInput(yearInput) {
-  const normalized = yearInput.value.trim();
+  const normalized = normalizeValue(yearInput.value, false);
   if (normalized.length < 1) {
     markAsInvalid(yearInput, 'Year is required!');
     return [false, null];
@@ -105,7 +116,7 @@ function validateYearInput(yearInput) {
 }
 
 function validateDurationInput(durationInput) {
-  let normalized = durationInput.value.trim();
+  let normalized = normalizeValue(durationInput.value, false);
   if (normalized.length === 0) {
     markAsInvalid(durationInput, 'Duration is required!');
     return [false, null];
@@ -127,7 +138,7 @@ function validateDurationInput(durationInput) {
 }
 
 function validateDirectorInput(directorInput) {
-  const normalized = directorInput.value.trim();
+  const normalized = normalizeValue(directorInput.value);
   if (normalized.length === 0) {
     markAsInvalid(directorInput, 'Director is required!');
     return [false, null];
@@ -178,7 +189,7 @@ function isValidImgUrl(url, timeout = 5000) {
 }
 
 async function validatePosterInput(posterInput) {
-  const normalized = posterInput.value.trim();
+  const normalized = normalizeValue(posterInput.value, false);
 
   if (normalized.length === 0) {
     markAsInvalid(posterInput, 'Poster is required!');
@@ -205,7 +216,7 @@ async function validatePosterInput(posterInput) {
 }
 
 function validateRatingInput(ratingInput) {
-  let normalized = ratingInput.value.trim();
+  let normalized = normalizeValue(ratingInput.value, false);
 
   if (normalized.length === 0) {
     markAsInvalid(ratingInput, 'Rating is required!');
@@ -228,7 +239,7 @@ function validateRatingInput(ratingInput) {
 }
 
 function validateDescription(descriptionInput) {
-  const normalized = descriptionInput.value.trim();
+  const normalized = normalizeValue(descriptionInput.value);
   if (normalized.length === 0) {
     markAsInvalid(descriptionInput, 'Description is required!');
     return [false, null];
