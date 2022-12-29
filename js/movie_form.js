@@ -34,7 +34,7 @@ function resetForm(form) {
   }
 }
 
-function validateForm(form, validatorsMap) {
+async function validateForm(form, validatorsMap) {
   let seenInvalid = false;
   let normalizedValues = {};
 
@@ -42,7 +42,10 @@ function validateForm(form, validatorsMap) {
     if (!field.id || !(field.id in validatorsMap)) {
       continue;
     }
-    const [isValid, normalizedValue] = validatorsMap[field.id](field);
+    const [isValid, normalizedValue] =
+      field.id === 'logo'
+        ? await validatorsMap[field.id](field)
+        : validatorsMap[field.id](field);
 
     if (seenInvalid) {
       continue;
@@ -147,7 +150,34 @@ function validateDirectorInput(directorInput) {
   return [true, normalized];
 }
 
-function validatePosterInput(posterInput) {
+// https://stackoverflow.com/a/9714891
+function isValidImgUrl(url, timeout = 5000) {
+  return new Promise((resolve, reject) => {
+    let timer = null;
+    const img = new Image();
+
+    img.onerror = img.onabort = () => {
+      clearTimeout(timer);
+      reject(false);
+    };
+
+    img.onload = () => {
+      clearTimeout(timer);
+      resolve(true);
+    };
+
+    timer = setTimeout(() => {
+      // reset .src to invalid URL so it stops previous
+      // loading, but doesn't trigger new load
+      img.src = '//!!!!/test.jpg';
+      reject(false);
+    }, timeout);
+
+    img.src = url;
+  });
+}
+
+async function validatePosterInput(posterInput) {
   const normalized = posterInput.value.trim();
 
   if (normalized.length === 0) {
@@ -162,6 +192,14 @@ function validatePosterInput(posterInput) {
     markAsInvalid(posterInput, 'URL is invalid!');
     return [false, null];
   }
+
+  try {
+    await isValidImgUrl(normalized);
+  } catch (error) {
+    markAsInvalid(posterInput, "URL isn't a valid image!");
+    return [false, null];
+  }
+
   markAsValid(posterInput);
   return [true, normalized];
 }
