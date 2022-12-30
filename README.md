@@ -13,7 +13,7 @@ $ npm install
 $ npm run start-db
 ```
 
-Live Server ekstenzija osvežava stranice kada se promeni data/db.json, tako da je poželjno da se stavi na listu fajlova za ignorsanje https://ritwickdey.github.io/vscode-live-server/docs/settings.html. Dobar primer neželjenog osvežavanja stranice je na move_add.html stranici gde se nakon uspešnog dodavanja filma, stranica osveži.
+Live Server ekstenzija osvežava stranice kada se promeni data/db.json, tako da je poželjno da se stavi na listu fajlova za ignorsanje https://ritwickdey.github.io/vscode-live-server/docs/settings.html. Dobar primer neželjenog osvežavanja stranice je na movie_add.html stranici gde se nakon uspešnog dodavanja filma, stranica osveži.
 
 ## Zadatak
 
