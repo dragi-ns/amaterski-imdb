@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./images/favicon.svg"
+      sizes="any"
+      type="image/svg+xml" />
+    <title>Amateur IMDB</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/movie_form.css" />
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <header class="bg-light shadow-sm">
+      <div class="container pt-4 pb-3">
+        <h1 class="text-center m-0">
+          <a
+            href="./index.html"
+            class="text-decoration-none text-uppercase text-black">
+            Amateur IMDB 😉
+          </a>
+        </h1>
+      </div>
+    </header>
+    <main class="flex-grow-1">
+      <div class="container py-4">
+        <h2>Add Movie</h2>
+        <hr />
+        <form id="movie-add-form" class="row g-3" novalidate>
+          <div class="col-md-4">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="Swan Song"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="year" class="form-label">Year</label>
+            <input
+              type="number"
+              class="form-control"
+              id="year"
+              placeholder="2021"
+              min="1800"
+              max="2099"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="duration" class="form-label">
+              Duration (in minutes)
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="duration"
+              placeholder="105"
+              min="1"
+              max="1440"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="director" class="form-label">Director</label>
+            <input
+              type="text"
+              class="form-control"
+              id="director"
+              placeholder="Todd Stephens"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="logo" class="form-label">Poster</label>
+            <input
+              type="url"
+              class="form-control"
+              id="logo"
+              placeholder="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/tf63pGGx3qdCj11xqJ8Ae3scTb.jpg"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label for="rating" class="form-label">Rating</label>
+            <input
+              type="number"
+              class="form-control"
+              id="rating"
+              min="1"
+              max="10"
+              placeholder="7.2"
+              required />
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-12">
+            <label for="description" class="form-label"> Description </label>
+            <textarea
+              class="form-control"
+              id="description"
+              placeholder="An aging hairdresser escapes his nursing home to embark on an odyssey across his small town to style a dead woman's hair for her funeral, rediscovering his sparkle along the way."
+              required></textarea>
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-12 text-end">
+            <button type="button" id="cancel-btn" class="btn btn-secondary">
+              Cancel
+            </button>
+            <button class="btn btn-primary">Add Movie</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer class="bg-light">
+      <p class="text-center m-0 pt-4 pb-3">
+        AMATEUR IMDB &copy; 2022 THE FACELESS MEN
+      </p>
+    </footer>
+    <div
+      id="success-toast"
+      class="toast align-items-center text-bg-success position-absolute border-0 top-0 end-0 m-3">
+      <div class="d-flex">
+        <div class="toast-body">Movie successfully added!</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div
+      id="fail-toast"
+      class="toast align-items-center text-bg-danger position-absolute border-0 top-0 end-0 m-3">
+      <div class="d-flex">
+        <div class="toast-body">There was an error while adding the movie!</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js"
+      integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <script src="./js/client.js"></script>
+    <script src="./js/movie_form.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/movie_add.js"></script>
+  </body>
+</html>

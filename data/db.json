@@ -1,0 +1,74 @@
+{
+  "movies": [
+    {
+      "title": "Avatar: The Way of Water",
+      "year": "2022",
+      "duration": 192,
+      "director": "James Cameron",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "rating": 8.4,
+      "description": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "id": 1
+    },
+    {
+      "title": "Troll",
+      "year": "2022",
+      "duration": 104,
+      "director": "Roar Uthaug",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/9z4jRr43JdtU66P0iy8h18OyLql.jpg",
+      "rating": 6.4,
+      "description": "Deep inside the mountain of Dovre, something gigantic awakens after being trapped for a thousand years. Destroying everything in its path, the creature is fast approaching the capital of Norway. But how do you stop something you thought only existed in Norwegian folklore?",
+      "id": 2
+    },
+    {
+      "title": "Swan Song",
+      "year": "2021",
+      "duration": 105,
+      "director": "Todd Stephens",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/tf63pGGx3qdCj11xqJ8Ae3scTb.jpg",
+      "rating": 7.8,
+      "description": "An aging hairdresser escapes his nursing home to embark on an odyssey across his small town to style a dead woman's hair for her funeral, rediscovering his sparkle along the way.",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "The Dark Knight",
+      "year": 2008,
+      "duration": 152,
+      "rating": 8.8,
+      "description": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+      "director": "Christopher Nolan",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+    },
+    {
+      "title": "Home Alone",
+      "year": "1990",
+      "duration": 103,
+      "director": "Chris Columbus",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/9wSbe4CwObACCQvaUVhWQyLR5Vz.jpg",
+      "rating": 7.8,
+      "description": "Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. But when a pair of bungling burglars set their sights on Kevin's house, the plucky kid stands ready to defend his territory. By planting booby traps galore, adorably mischievous Kevin stands his ground as his frantic mother attempts to race home before Christmas Day.",
+      "id": 5
+    },
+    {
+      "title": "Violent Night",
+      "year": "2022",
+      "duration": 112,
+      "director": "Tommy Wirkola",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/1XSYOP0JjjyMz1irihvWywro82r.jpg",
+      "rating": 7.9,
+      "description": "When a team of mercenaries breaks into a wealthy family compound on Christmas Eve, taking everyone inside hostage, the team isn’t prepared for a surprise combatant: Santa Claus is on the grounds, and he’s about to show why this Nick is no saint.",
+      "id": 9
+    },
+    {
+      "title": "The Boss Baby: Christmas Bonus",
+      "year": "2022",
+      "duration": 47,
+      "director": "Christo Stamboliev",
+      "logo": "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/iMmMxF6f2OonUrXrHKBLSYAhXly.jpg",
+      "rating": 7.4,
+      "description": "Christmas Eve takes a twisty turn when the Boss Baby accidentally swaps places with one of Santa's elves and gets stranded at the North Pole.",
+      "id": 10
+    }
+  ]
+}

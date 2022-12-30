@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./images/favicon.svg"
+      sizes="any"
+      type="image/svg+xml" />
+    <title>Amateur IMDB</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/movie_form.css" />
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <header class="bg-light shadow-sm">
+      <div class="container pt-4 pb-3">
+        <h1 class="text-center m-0">
+          <a
+            href="./index.html"
+            class="text-decoration-none text-uppercase text-black">
+            Amateur IMDB 😉
+          </a>
+        </h1>
+      </div>
+    </header>
+    <main class="flex-grow-1">
+      <div id="movie-details" class="container py-4">
+        <h2 class="text-center">
+          Are you sure you want to delete the <span id="movie-name"></span>
+          movie?
+        </h2>
+        <hr />
+        <form id="movie-delete-form" class="row g-3" novalidate>
+          <div class="col-12">
+            <label for="reason" class="form-label">
+              Reason for deleting (optional)
+            </label>
+            <textarea
+              class="form-control"
+              id="reason"
+              placeholder="This movie sucks!"
+              required></textarea>
+            <div class="invalid-feedback"></div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-12 text-end">
+            <button type="button" id="cancel-btn" class="btn btn-secondary">
+              Cancel
+            </button>
+            <button class="btn btn-danger">Delete Movie</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer class="bg-light">
+      <p class="text-center m-0 pt-4 pb-3">
+        AMATEUR IMDB &copy; 2022 THE FACELESS MEN
+      </p>
+    </footer>
+    <div
+      id="success-toast"
+      class="toast align-items-center text-bg-success position-absolute border-0 top-0 end-0 m-3">
+      <div class="d-flex">
+        <div class="toast-body">Movie successfully deleted!</div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <div
+      id="fail-toast"
+      class="toast align-items-center text-bg-danger position-absolute border-0 top-0 end-0 m-3">
+      <div class="d-flex">
+        <div class="toast-body">
+          There was an error while deleting the movie!
+        </div>
+        <button
+          type="button"
+          class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/client.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/movie_delete.js"></script>
+  </body>
+</html>
