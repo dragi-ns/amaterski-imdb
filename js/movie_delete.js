@@ -5,6 +5,7 @@ const successToast = new bootstrap.Toast(
 );
 const failToast = new bootstrap.Toast(document.getElementById('fail-toast'));
 const movieName = document.getElementById('movie-name');
+const cancelBtn = document.getElementById('cancel-btn');
 const form = document.getElementById('movie-delete-form');
 const id = getQueryStringParameterByName('id');
 if (id) {
@@ -38,3 +39,4 @@ form.addEventListener('submit', (event) => {
       console.error(`You had one job...${error}`);
     });
 });
+cancelBtn.addEventListener('click', () => goBack());
